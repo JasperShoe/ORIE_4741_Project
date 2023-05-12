@@ -200,7 +200,7 @@ Learning the model resulted in a train mean square error (MSE) of 2756.120 and a
 
 \includegraphics[width=0.4\textwidth, angle=0]{linregRR.png}
 
-After performing Ordinary Least Squares Regression on the data, we decided to add a regularizer to the data. This allows us to prevent overfitting by increasing the error when w gets large.
+After performing ordinary least squares regression on the data, we decided to add a regularizer to the data. This allows us to prevent overfitting by increasing the error when w gets large.
 
 
 \begin{adjustwidth}{1cm}{}
@@ -212,7 +212,7 @@ After performing Ordinary Least Squares Regression on the data, we decided to ad
 
 \end{adjustwidth}
 
-We started off with Ridge regression, which means that we define $r(w)$ as it is defined above. However, we found that adding this regularizer had virtually no effect. Our Train MSE came out to be 2756.120 and our Test MSE is 2905.007, so both our errors change by less than 0.01. We determined that this is a result of our model choosing a low w and the intercept having a small affect on the data. Through this model, our intercept term gets pushed down to 0, while our time variable is almost the same as before. So, we decided that since our w is small and likely doesn't overfit the data, we decided that we would not look at other regularizers because they would likely not have big effects.
+We started off with ridge regression, which means that we define $r(w)$ as it is defined above. However, we found that adding this regularizer had virtually no effect. Our training MSE came out to be 2756.120 and our test MSE is 2905.007, so both our errors change by less than 0.01. We determined that this is a result of our model choosing a low w and the intercept having a small affect on the data. Through this model, our intercept term gets pushed down to 0, while our time variable is almost the same as before. So, we decided that since our w is small and likely doesn't overfit the data, we decided that we would not look at other regularizers because they would likely not have big effects.
 
 \subsection{Linear Regression with Huber Loss}
 
@@ -226,13 +226,13 @@ In order to improve our model, we decided to investigate using different loss fu
     \]
 \end{adjustwidth}
 
-This function is a robust loss function, which means that it is less sensitive to outliers. So, we thought it would be interesting to use this function to see if the outliers in this dataset were causing the error. After learning the new model, we obtained a train MSE of 3078.050 and a test MSE of 3358.484. It is evident that the Huber loss model performs worse than the OLS model. However, the loss was not that far off form OLS so we decided to try another robust loss function to get a better sense of how the model reacts to the outliers.
+This function is a robust loss function, which means that it is less sensitive to outliers. So, we thought it would be interesting to use this function to see if the outliers in this dataset were causing the error. After learning the new model, we obtained a training MSE of 3078.050 and a test MSE of 3358.484. It is evident that the Huber loss model performs worse than the OLS model. However, the loss was not that far off form OLS so we decided to try another robust loss function to get a better sense of how the model reacts to the outliers.
 
 \subsection{Linear Regression with Quantile Loss}
 
 \includegraphics[width=0.4\textwidth, angle=0]{linregQ.png}		
 
-Another loss function that we used was the Quantile loss function. This is an additional type of a robust loss function. It is defined as 
+Another loss function that we used was the quantile loss function. This is an additional type of a robust loss function. It is defined as 
 
 \begin{adjustwidth}{1.4cm}{}
     \[
@@ -245,7 +245,7 @@ Another loss function that we used was the Quantile loss function. This is an ad
     \]
 \end{adjustwidth}
 
-We see a similar outcome when using this loss function. We get a Train MSE of 3542.257 and a Test MSE of 3884.462. This loss does a significantly worse job than OLS. So, we concluded that the outliers were not one of our main issues.
+We see a similar outcome when using this loss function. We get a training MSE of 3542.257 and a test MSE of 3884.462. This loss does a significantly worse job than OLS. So, we concluded that the outliers were not one of our main issues.
 
 \subsection{Linear Regression with Feature Transformation}
 
@@ -259,7 +259,7 @@ After performing our regression analysis with different kinds of loss functions,
     \]
 \end{adjustwidth}
 
-This function takes time as our input parameter and outputs the exponential of the time. This allowed us to transform our data into a new dataset that would eventually help us see a more linear relationship within the data points. As shown in the graph, our predictions do a much better job of accurately forecasting the true close price. Additionally, this model lowers our Train MSE to 1581.530 and our Test MSE to 1615.756. This model is definitely a step in the right direction and led us to pursue the model in our next section.
+This function takes time as our input parameter and outputs the exponential of the time. This allowed us to transform our data into a new dataset that would eventually help us see a more linear relationship within the data points. As shown in the graph, our predictions do a much better job of accurately forecasting the true close price. Additionally, this model lowers our training MSE to 1581.530 and our test MSE to 1615.756. This model is definitely a step in the right direction and led us to pursue the model in our next section.
 
 \subsection{Kernel Regression}
 
@@ -315,6 +315,10 @@ When considering whether this project could produce a "Weapon of Math Destructio
 When choosing a model for any application, including financial forecasting, fairness is an important criterion to consider. Fairness ensures that the model does not produce biased outcomes or perpetuate existing biases in the data. In this project, the fairness criterion was not explicitly considered, and it would be essential to assess whether the model produces unbiased results for all investors and stakeholders. A fair model ensures that investors can make informed investment decisions based on accurate predictions and reduces the potential for negative consequences.
 
 To further improve the model and project, there are several steps that can be taken. Firstly, we could collect more data to increase the sample size and improve the robustness of the model. This could involve gathering additional data from different sources, or expanding the range of variables that are included in the analysis. Secondly, we could explore the use of more advanced machine learning techniques, such as neural networks or ensemble methods, to improve the accuracy of the model. These approaches can help to capture more complex relationships between the variables and may be particularly effective when dealing with high-dimensional data. Lastly, we could perform a more comprehensive evaluation of the model, using techniques such as cross-validation or sensitivity analysis, to assess its performance across different subsets of the data and under different assumptions. This would help to identify any weaknesses or limitations of the model, and guide further refinements and improvements.
+
+\section{Contributions}
+
+ All group members were involved in analyzing and cleaning the dataset, performing feature engineering, creating the first linear regression model using OLS, and the classification model attempt. Jasper Hsu took the lead on implementing models with different loss functions and regularizers, Trey Hensel lead the group in implementing the linear regression model with feature transformation, and Thomas Suman headed the implementation of the kernelized regression model, each of which with help from the other group members along the way. Finally, this project report is the result of the team working together to document their findings and analyze the different models.
 
 
 
